@@ -5,16 +5,21 @@
 }
 .element {
     background-color: brown;
-    flex-basis: 6.25% ;
     border: 2px solid black;
 }
 .container{
     background-color: blanchedalmond;
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    height: 97vh;
     width: 100vw;
 }
 .mouseOver{
-    background-color: blue;
+    background-color: yellowgreen;
+}
+.buttonContainer{
+    height: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
