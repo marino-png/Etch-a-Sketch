@@ -9,11 +9,11 @@ for (let i = 0; i < 256; i++){
     gridElements.push(div);
 
     div.onmouseover = function() {
-        div.classList.add('mouseOver');
+        div.style.backgroundColor = rgbValues();
     };
 
     div.onmouseout = function() {
-        div.classList.remove('mouseOver');
+        div.style.backgroundColor = 'rgb(255,255,255)';
     };   
 }
 
@@ -31,18 +31,26 @@ function chooseGrid(){
     number = Math.pow(number,2);
 
     for (let i = 0; i < number; i++){
-        const div = document.createElement('div');
-        div.classList.add('element');
-        container.appendChild(div);
-        div.style.flexBasis = percentage;
-        gridElements.push(div);
+        const divs = document.createElement('div');
+        divs.classList.add('element');
+        container.appendChild(divs);
+        divs.style.flexBasis = percentage;
+        gridElements.push(divs);
     
-        div.onmouseover = function() {
-            div.classList.add('mouseOver');
+        divs.onmouseover = function() {
+            divs.style.backgroundColor = rgbValues();
         };
     
-        div.onmouseout = function() {
-            div.classList.remove('mouseOver');
+        divs.onmouseout = function() {
+            divs.style.backgroundColor = 'rgb(255,255,255)';
         };   
     }
+}
+function rgbValues(){
+    let rgbValue = 'rgb('+getRandomNumber()+','+getRandomNumber()+','+getRandomNumber()+')';
+    return rgbValue;
+}
+function getRandomNumber(){
+    const getRandomNumber = Math.floor(Math.random()*255);
+    return getRandomNumber;
 }
