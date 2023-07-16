@@ -1,12 +1,10 @@
 const container = document.querySelector('.container');
-const gridElements = [];
 
 for (let i = 0; i < 256; i++){
     const div = document.createElement('div');
     div.classList.add('element');
     div.style.flexBasis = '6.25%';
     container.appendChild(div);
-    gridElements.push(div);
 
     div.onmouseover = function() {
         div.style.backgroundColor = rgbValues();
@@ -18,9 +16,9 @@ for (let i = 0; i < 256; i++){
 }
 
 function remove(){
-    for (let i = 0; i < 256; i++){
-        container.removeChild(gridElements[i]);
-    }
+    while (container.firstChild ) {
+        container.removeChild(container.firstChild);
+      }
 }
 
 function chooseGrid(){
@@ -35,7 +33,6 @@ function chooseGrid(){
         divs.classList.add('element');
         container.appendChild(divs);
         divs.style.flexBasis = percentage;
-        gridElements.push(divs);
     
         divs.onmouseover = function() {
             divs.style.backgroundColor = rgbValues();
